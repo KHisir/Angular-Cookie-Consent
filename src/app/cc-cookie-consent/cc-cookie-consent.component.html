@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+
+<div id="cookie-wrapper" [class.no-options]="options.length === 0" [style.display]="CookieAccepted !== null ? 'none' : 'block'"
+  [@fadeInOut]>
+  <div id="content">
+    <h2 id="title" *ngIf="options.length > 0">Cookies</h2>
+
+    <p [innerHtml]="text"></p>
+
+    <div id="options-content" *ngIf="options.length > 0">
+      <div class="cc-checkbox" *ngFor="let option of options; let i = index">
+        <input [(ngModel)]="option.Checked" class="inp-cbx" [attr.id]="i + '-' + option.Id" type="checkbox"
+          style="display: none;" /><label class="cbx" [attr.for]="i + '-' + option.Id"
+          [attr.title]="option.Name"><span><svg width="12px" height="9px" viewbox="0 0 12 9">
+              <polyline points="1 5 4 8 11 1"></polyline>
+            </svg></span><span>&nbsp;{{option.Name}}</span></label>
+        <small [attr.title]="option.SubText">{{option.SubText}}</small>
+      </div>
+    </div>
+    <div id="footer-content">
+      <!-- when use options: -->
+      <button type="button" class="secondary" *ngIf="options.length > 0" (click)="accepOptions()">Confirm selection</button>
+      <button type="button" *ngIf="options.length > 0" (click)="selectAll()">Select all</button>
+
+      <!-- no options: -->
+      <button type="button" class="secondary" *ngIf="options.length === 0" (click)="refuse()">I refuse cookies</button>
+      <button type="button" *ngIf="options.length === 0" (click)="accept()">I accept cookies</button>
+    </div>
+  </div>
+
+</div>
