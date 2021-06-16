@@ -5,7 +5,7 @@
   <div id="content">
     <h2 id="title" *ngIf="options.length > 0">Cookies</h2>
 
-    <p [innerHtml]="text"></p>
+    <p [innerHtml]="description"></p>
 
     <div id="options-content" *ngIf="options.length > 0">
       <div class="cc-checkbox" *ngFor="let option of options; let i = index">

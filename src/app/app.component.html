@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 
 <!-- demo 1: -->
-<app-cc-cookie-consent [options]="cookieOptions" [text]="text" (apply)="onApply($event)"></app-cc-cookie-consent>
+<app-cc-cookie-consent [options]="cookieOptions" [description]="description" (result)="onApply($event)"></app-cc-cookie-consent>
 
 <!-- demo 2: -->
-<!-- <app-cc-cookie-consent (apply)="onApply($event)"></app-cc-cookie-consent> -->
+<!-- <app-cc-cookie-consent (result)="onApply($event)"></app-cc-cookie-consent> -->

@@ -35,11 +35,11 @@ export class CcCookieConsentComponent implements OnInit {
     this.cookieAccepted = JSON.parse(CookieAgent.getCookie(CookieKey.CookieAccepted));
   }
 
-  @Input() text = 'This website uses cookies to ensure you get the best experience on our website';
+  @Input() description = 'This website uses cookies to ensure you get the best experience on our website';
 
   @Input() options: CookieOption[] = [];
 
-  @Output() apply = new EventEmitter<boolean | CookieOption[]>();
+  @Output() result = new EventEmitter<boolean | CookieOption[]>();
 
   ngOnInit(): void {}
 
@@ -55,16 +55,16 @@ export class CcCookieConsentComponent implements OnInit {
 
   accepOptions(): void {
     this.CookieAccepted = true;
-    this.apply.emit(this.options);
+    this.result.emit(this.options);
   }
 
   accept(): void {
     this.CookieAccepted = true;
-    this.apply.emit(this.CookieAccepted);
+    this.result.emit(this.CookieAccepted);
   }
 
   refuse(): void {
     this.CookieAccepted = false;
-    this.apply.emit(this.CookieAccepted);
+    this.result.emit(this.CookieAccepted);
   }
 }
