@@ -35,11 +35,9 @@ export class CcCookieConsentComponent implements OnInit {
     this.cookieAccepted = JSON.parse(CookieAgent.getCookie(CookieKey.CookieAccepted));
   }
 
-  @Input() description = 'This website uses cookies to ensure you get the best experience on our website';
-
-  @Input() options: CookieOption[] = [];
-
   @Output() result = new EventEmitter<boolean | CookieOption[]>();
+  @Input() description = 'This website uses cookies to ensure you get the best experience on our website';
+  @Input() options: CookieOption[] = [];
 
   ngOnInit(): void {}
 
