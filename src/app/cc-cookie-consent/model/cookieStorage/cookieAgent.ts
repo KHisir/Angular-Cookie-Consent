@@ -11,7 +11,7 @@ export abstract class CookieAgent {
 
     const expires = '; expires=' + date.toUTCString();
 
-    document.cookie = key + '=' + data + expires + '; path=/';
+    document.cookie = key + '=' + data + expires + '; path=/' + '; SameSite=Lax';
   }
 
   public static getCookie(key: CookieKey): any {
